@@ -10,15 +10,43 @@
 	<script src="js/jquery.tipsy.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
 	<script src="js/classes/ProjectCollection.class.js"></script>
+	
+	<script src="js/underscore-min.js"></script>
+	<script src="js/backbone-min.js"></script>
 
 	<script>
+		$(function(){
+			
+			// Router
+			var AppRouter = Backbone.Router.extend({
+
+			    routes:{
+			        "":"home",
+			        "projects":"projects"
+			    },
+
+			    home:function(){
+					console.log('show home');
+			        /*this.wineList = new WineCollection();
+			        this.wineListView = new WineListView({model:this.wineList});
+			        this.wineList.fetch();
+			        $('#sidebar').html(this.wineListView.render().el);*/
+			    },
+
+			    projects:function(){
+					console.log('show projects');
+				}
+			});
+
+			var app = new AppRouter();
+			Backbone.history.start();
+		});
+	
 		$(function(){
 			
 			var homeContent = $('#content').html();
 			var currentPage = 'home';
 			
-			
-				
 			initClickHandlers();
 			initTags();
 			initLavaNavigation();
@@ -33,7 +61,7 @@
 				
 				$('#projects').click(function(e){
 					var currentPage = 'projects';
-					e.preventDefault();
+					//e.preventDefault();
 					
 					$.get('php/getProjects.php', function(data){
 						console.log(data);
@@ -146,7 +174,7 @@
 	<header>
 		<h1>JOEY HOOGERWERF</h1>
 		<a id="home" href="#">WH0 AM I?</a>
-		<a id="projects" href="#">MY PR0JECTS!</a>
+		<a id="projects" href="#projects">MY PR0JECTS!</a>
 		<a id="contact" href="#">C0NTACT</a>
 	</header>
 	
