@@ -47,13 +47,13 @@
 			var homeContent = $('#content').html();
 			var currentPage = 'home';
 			
-			initClickHandlers();
+			//initClickHandlers();
 			initTags();
 			initLavaNavigation();
 			
 			function initClickHandlers(){
 				$('#home').click(function(e){
-					e.preventDefault();
+					//e.preventDefault();
 					var currentPage = 'home';
 					$('#content').empty().append(homeContent);
 					initTags();
@@ -173,7 +173,7 @@
 <div id="wrapper">	
 	<header>
 		<h1>JOEY HOOGERWERF</h1>
-		<a id="home" href="#">WH0 AM I?</a>
+		<a id="home" href="">WH0 AM I?</a>
 		<a id="projects" href="#projects">MY PR0JECTS!</a>
 		<a id="contact" href="#">C0NTACT</a>
 	</header>
